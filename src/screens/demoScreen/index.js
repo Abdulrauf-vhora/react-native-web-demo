@@ -22,10 +22,9 @@ import {useDispatch, useSelector} from 'react-redux';
 import {useNavigation} from '@react-navigation/native';
 
 // import {TextInput} from 'react-native-web';
-export const DemoScreen = () => {
+export const DemoScreen = props => {
   // const dispatch = useDispatch();
   const navigation = useNavigation();
-
   const styles = useStyles();
   const deviceSize = useDeviceSize();
   const [name, setName] = useState('');
@@ -40,8 +39,8 @@ export const DemoScreen = () => {
     userDetail: state.userDataReducer.userDataResponse,
   }));
   useEffect(() => {
-    console.log('userDetail', userDetail);
-    console.log('userDetail 22', userDetail.name);
+    // console.log('userDetail', userDetail);
+    // console.log('userDetail name', userDetail.name);
     setName(userDetail.name);
     setAddress(userDetail.address);
   }, []);
@@ -71,7 +70,7 @@ export const DemoScreen = () => {
           <TextInput
             value={name}
             style={styles.textInput}
-            placeholder="name"
+            placeholder="Name"
             placeholderTextColor="#003f5c"
             // secureTextEntry={true}
             onChangeText={val => {
@@ -97,11 +96,6 @@ export const DemoScreen = () => {
           />
         </View>
         <View>
-          {/* <Button
-     
-            style={styles.loginBtn}
-            name="LOGIN"
-          /> */}
           <Pressable
             onPress={() => {
               setLoading(true);
@@ -121,7 +115,8 @@ export const DemoScreen = () => {
           </Pressable>
           <Pressable
             onPress={() => {
-              navigation.goBack();
+              // navigation.goBack();
+              navigation.navigate('homeScreen');
             }}
             // style={styles.loginBtn}
             style={styles.loginBtn}>
@@ -186,7 +181,6 @@ const useStyles = CreateResponsiveStyle(
     textInput: {
       backgroundColor: '#FFC0CB',
       paddingLeft: size.moderateScale(15),
-      outline: 'none',
       borderWidth: 1,
       borderColor: 'red',
       marginVertical: size.moderateScale(8),

@@ -1,12 +1,9 @@
 import React from 'react';
 import {Text, View, SafeAreaView, Pressable} from 'react-native';
-import {Loader} from '../../components/loader';
 import {useNavigation} from '@react-navigation/native';
 
 import {CreateResponsiveStyle, DEVICE_SIZES} from 'rn-responsive-styles';
 import {size} from '../../theme/Size';
-
-// import {TextInput} from 'react-native-web';
 export const HomeScreen = () => {
   const styles = useStyles();
   const navigation = useNavigation();
@@ -17,7 +14,6 @@ export const HomeScreen = () => {
       <Text style={styles.title}>HomeScreen</Text>
       <View style={styles.container}>
         {/* </View> */}
-
         <View>
           <Pressable
             onPress={() => {

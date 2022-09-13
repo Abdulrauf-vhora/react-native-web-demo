@@ -7,14 +7,18 @@ import {DemoScreen, HomeScreen} from '../../screens';
 const Stack = createNativeStackNavigator();
 
 export const MainStackNavigation = () => {
-  // const {login, userData} = useSelector(state => ({
-  //   login: state.userDataReducer.userDataResponse.login,
-  //   userData: state.userDataReducer.userDataResponse.userData,
-  // }));
   return (
-    <NavigationContainer>
+    <NavigationContainer
+      linking={{
+        config: {
+          screens: {
+            homeScreen: '/homeScreen',
+            demoScreen: '/demoScreen',
+          },
+        },
+      }}>
       <Stack.Navigator
-        // initialRouteName="splashScreen"
+        initialRouteName="homeScreen"
         screenOptions={{
           headerShown: false,
         }}>

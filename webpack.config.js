@@ -87,6 +87,10 @@ module.exports = {
       svgLoaderConfiguration,
     ],
   },
+  // dev server useful when page refresh(have a route name) and getting cannot get error
+  devServer: {
+    historyApiFallback: true,
+  },
   plugins: [
     new HtmlWebpackPlugin({
       template: path.join(__dirname, 'index.html'),
